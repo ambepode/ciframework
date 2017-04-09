@@ -7,7 +7,7 @@ class Site extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-        $this->load->helper(['loadAssets']);
+        $this->load->helper(['loadAssets_helper']);
         $this->css = loadCss(['/assets/css/site/style.css']);
     }
 
