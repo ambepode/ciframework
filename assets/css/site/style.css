@@ -27,7 +27,7 @@
     display: inline-block;
     height: 1.25em;
     line-height: 1.25em;
-    margin-right: 0.625em;
+    margin-right: 0.225em;
     text-align: center;
     vertical-align: middle;
     width: 1.25em;
@@ -104,7 +104,8 @@ input {
     padding: 0;
 }
 
-input[type='submit'] {
+input[type='submit'],
+a .signUp {
     cursor: pointer;
 }
 
@@ -173,7 +174,8 @@ input[type='submit'] {
     border-top: 0;
 }
 
-.login input[type='submit'] {
+.login input[type='submit'],
+.login .signUp {
     background-color: #1dabb8;
     border-radius: var(--loginInputBorderRadius);
     color: #fff;
@@ -184,7 +186,9 @@ input[type='submit'] {
 }
 
 .login input[type='submit']:focus,
-.login input[type='submit']:hover {
+.login .signUp:focus,
+.login input[type='submit']:hover,
+.login .signUp:hover {
     background-color: #198d98;
 }
 

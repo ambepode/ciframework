@@ -90,3 +90,4 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 |--------------------------------------------------------------------------
 */
 defined('CSS_VER') OR define('CSS_VER', '?ver=170409');
+defined('JS_VER') OR define('JS_VER', '?ver=170409');
