@@ -10,11 +10,11 @@
             </header>
             <div class="login__body">
                 <div class="form__field">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" name="email" placeholder="Email" required>
                 </div>
 
                 <div class="form__field">
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Password" required>
                 </div>
             </div>
             <footer class="login__footer">
