@@ -9,11 +9,6 @@ class Site extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper(['common', 'url']);
-        $this->css = loadCss(['/assets/css/site/style.css']);
-        $this->js = loadJs([
-            '/assets/js/jquery-3.2.0.js',
-            '/assets/js/common.js'
-        ]);
     }
 
     /*
@@ -39,10 +34,7 @@ class Site extends CI_Controller {
 		    }
 	    }
 
-        $this->load->view('site', [
-            'css' => $this->css,
-            'js' => $this->js
-        ]);
+        $this->load->view('site');
     }
 
     public function signUp() {
@@ -63,18 +55,11 @@ class Site extends CI_Controller {
             (new self)->index();
 
         } else {
-            $this->load->view('signUp', [
-                'css' => $this->css,
-                'js' => $this->js
-            ]);
+            $this->load->view('signUp');
         }
     }
 
     public function homePage() {
-	    $this->load->view('welcome_message', [
-		    'css' => $this->css,
-		    'js' => $this->js
-	    ]);
+	    $this->load->view('welcome_message');
     }
-
 }
