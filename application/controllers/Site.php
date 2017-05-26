@@ -25,15 +25,6 @@ class Site extends CI_Controller {
     */
 
     public function index() {
-	    $param = $this->input->post(null, true);
-
-	    if(!empty($param)) {
-		    if($param['email'] == 'test@test' && $param['password'] == 'test') {
-			    $this->homePage();
-			    return false;
-		    }
-	    }
-
         $this->load->view('site');
     }
 
@@ -60,6 +51,16 @@ class Site extends CI_Controller {
     }
 
     public function homePage() {
-	    $this->load->view('welcome_message');
+	    $param = $this->input->post(null, true);
+
+	    if(!empty($param)) {
+	    	saveSession($param);
+	    }
+
+	    if($param['email'] == 'test@test' && $param['password'] == 'test') {
+		    $this->load->view('ios');
+	    } else {
+	    	return false;
+	    }
     }
 }

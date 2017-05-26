@@ -63,3 +63,25 @@ SCRIPT;
         return $script;
     }
 }
+
+if(!function_exists('saveSession')){
+	/**
+	 * save Session data
+	 * @param array $data
+	 * @return bool
+	 */
+	function saveSession($data){
+		var_export($data);
+		$userData = [];
+
+		$userData = [
+			'session_id' => '',
+			'ip_address' => '',
+			'user_agent' => '',
+			'last_activity' => '',
+			'user_data' => ''
+		];
+
+		return true;
+	}
+}

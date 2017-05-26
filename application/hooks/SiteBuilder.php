@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class siteBuilder extends CI_Controller {
+class SiteBuilder extends CI_Controller {
 
 	public $css = '';
 	public $js = '';

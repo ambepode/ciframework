@@ -1,5 +1,5 @@
 <div class="grid">
-    <form action="/" method="post" class="form login">
+    <form action="/site/homePage" method="post" class="form login">
         <header class="login__header">
             <h3 class="login__title">Login</h3>
         </header>
