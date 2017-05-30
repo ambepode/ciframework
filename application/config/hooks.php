@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$hook['pre_controller'] = [
+$hook['post_controller_constructor'] = [
 	'class'    => 'SiteBuilder',
 	'function' => 'loadHeader',
 	'filename' => 'siteBuilder.php',
