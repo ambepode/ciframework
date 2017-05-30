@@ -71,7 +71,12 @@ if(!function_exists('saveSession')){
 	 * @return bool
 	 */
 	function saveSession($data){
-		var_export($data);
+
+		// $name = $this->session->name
+		// $name = $this->session->userdata('name');
+		$this->session->set_userdata('asd');
+		// $this->session->unset_userdata('some_name');
+
 		$userData = [];
 
 		$userData = [
