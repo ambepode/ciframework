@@ -54,8 +54,8 @@ class Site extends CI_Controller {
 	    $param = $this->input->post(null, true);
 
 	    if(!empty($param)) {
-		    $this->load->library('session');
-	    	saveSession($param);
+		    //$this->load->library('session');
+	    	//saveSession($param);
 	    }
 
 	    if($param['email'] == 'test@test' && $param['password'] == 'test') {
