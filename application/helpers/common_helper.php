@@ -74,7 +74,7 @@ if(!function_exists('saveSession')){
 
 		// $name = $this->session->name
 		// $name = $this->session->userdata('name');
-		$this->session->set_userdata('asd');
+		// $this->session->set_userdata('asd');
 		// $this->session->unset_userdata('some_name');
 
 		$userData = [];
