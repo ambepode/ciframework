@@ -9,6 +9,8 @@ class Site extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper(['common', 'url']);
+        $this->load->library('common');
+	    $this->load->model('Member');
     }
 
     /*
@@ -32,18 +34,24 @@ class Site extends CI_Controller {
         $signUpForm = $this->input->post(null, true);
 
         if(is_array($signUpForm) && !empty($signUpForm)) {
-            // form validation step 1
+            // check blank
             foreach($signUpForm as $value) {
                 if(empty($value)) {
                     echo alertMessage('fill out all the blanks');
                 }
             }
-            // form validation step 2
+
+            // check password
             if($signUpForm['password'] !== $signUpForm['password2']) {
                 echo alertMessage('password error');
             }
-            // @todo form validation step 3(regExp)
-            (new self)->index();
+
+            // check regExp
+            // (new self)->index();
+
+	        $this->Member->setMemberInfo($signUpForm);
+
+	        $this->load->view('signUp');
 
         } else {
             $this->load->view('signUp');
@@ -54,6 +62,7 @@ class Site extends CI_Controller {
 	    $param = $this->input->post(null, true);
 
 	    if(!empty($param)) {
+	    	// $this->common->setUserLoginData();
 		    //$this->load->library('session');
 	    	//saveSession($param);
 	    }
