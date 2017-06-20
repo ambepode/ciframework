@@ -68,9 +68,13 @@ class Site extends CI_Controller {
 	    }
 
 	    if($param['email'] == 'test@test' && $param['password'] == 'test') {
-		    $this->load->view('ios');
+		    $this->load->view('category');
 	    } else {
 	    	return false;
 	    }
+    }
+
+    public function iosRestful() {
+	    $this->load->view('ios');
     }
 }
