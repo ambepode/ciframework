@@ -10,7 +10,7 @@ class Site extends CI_Controller {
         parent::__construct();
         $this->load->helper(['common', 'url']);
         $this->load->library('common');
-	    $this->load->model('Member');
+	    // $this->load->model('Member');
     }
 
     /*
@@ -49,7 +49,7 @@ class Site extends CI_Controller {
             // check regExp
             // (new self)->index();
 
-	        $this->Member->setMemberInfo($signUpForm);
+	        // $this->Member->setMemberInfo($signUpForm);
 
 	        $this->load->view('signUp');
 
