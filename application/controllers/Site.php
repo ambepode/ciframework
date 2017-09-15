@@ -27,6 +27,7 @@ class Site extends CI_Controller {
     */
 
     public function index() {
+    	echo 'asd';
         $this->load->view('site');
     }
 
