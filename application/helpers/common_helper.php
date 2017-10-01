@@ -5,6 +5,7 @@ if(!function_exists('loadAssets')){
     /**
      * create css link
      * @param array $path
+     * @param string $asset (css, js)
      * @return string
      */
     function loadAssets($path, $asset = 'css'){
@@ -13,7 +14,7 @@ if(!function_exists('loadAssets')){
 
         if(is_array($pathArr)){
             foreach($pathArr as $path){
-                $path = $path . CSS_VER;
+                $path = $path . ASSET_VER;
 
 	            if($asset == 'css') {
 		            $html .= "<link rel='stylesheet' type='text/css' href='{$path}'>\n";

@@ -10,6 +10,7 @@ class Site extends CI_Controller {
         parent::__construct();
         $this->load->helper(['common', 'url']);
         $this->load->library('common');
+        $this->load->library('session');
 	    // $this->load->model('Member');
     }
 
@@ -27,8 +28,25 @@ class Site extends CI_Controller {
     */
 
     public function index() {
-    	echo 'asd';
-        $this->load->view('site');
+        $sessionData = $this->session->all_userdata();
+        if(!empty($sessionData)) {
+            var_dump($sessionData);
+        }
+
+        $this->load->view('/site/index');
+    }
+
+    /**
+     * 로그인 처리
+     */
+    public function doLogin() {
+        $memberId = $this->input->post('memberId', true);
+        $password = $this->input->post('password', true);
+
+        $userData = ['memberId' => 'helloJohn'];
+        $this->session->set_userdata($userData);
+
+        redirect('/signUp');
     }
 
     public function signUp() {

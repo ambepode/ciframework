@@ -16,7 +16,9 @@ class SiteBuilder extends CI_Controller {
 	}
 
 	public function loadHeader() {
-		$css = loadAssets(['/assets/css/site/style.css'], 'css');
+		$css = loadAssets([
+		    // '/assets/css/site/style.css'
+        ], 'css');
 		$view = $this->CI->load->view('header', [
 			'css' => $css
 		], true);
