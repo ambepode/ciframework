@@ -1,21 +1,25 @@
-<div class="grid">
-    <form action="<?=str_replace('/index.php', '', $this->input->server('PHP_SELF'))?>" method="post" class="form login">
-        <header class="login__header">
-            <h3 class="login__title">Sign Up</h3>
-        </header>
-        <div class="login__body">
-            <div class="form__field">
-                <input type="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="form__field">
-                <input type="password" name="password" placeholder="Password" required>
-            </div>
-            <div class="form__field">
-                <input type="password" name="password2" placeholder="Confirm Password" required>
-            </div>
-        </div>
-        <footer class="login__footer">
-            <input id="submitSignUpForm" type="submit" value="Sign Up">
-        </footer>
-    </form>
+<div class="page-header">
+    <h3>Sign Up</h3>
+    <p class="lead">Disable the responsiveness of Bootstrap by fixing the width of the container and using the first grid system tier. <a href="http://getbootstrap.com/getting-started/#disable-responsive">Read the documentation</a> for more information.</p>
 </div>
+
+<!-- 회원가입 폼 -->
+<div class="row" style="margin: 0;">
+    <div class="col-xs-4" style="background-color: #ffffff">
+        <form action="/doJoin/" method="post">
+            <div class="input-group">
+                <span id="sizing-addon2" class="input-group-addon" style="width: 100px;">ID</span>
+                <input class="form-control" type="text" name="memberId"  placeholder="MemberId" aria-describedby="sizing-addon2" style="width: 200px;">
+            </div>
+            <p></p>
+            <div class="input-group">
+                <span id="sizing-addon2" class="input-group-addon" style="width: 100px;">PW</span>
+                <input class="form-control" type="password" name="password" placeholder="Password" aria-describedby="sizing-addon2" style="width: 200px;">
+            </div>
+            <p></p>
+            <button type="submit" class="btn btn-default" style="float: right;">SignUp</button>
+        </form>
+    </div>
+    <div class="col-xs-8"></div>
+</div>
+<!-- /회원가입 폼 -->

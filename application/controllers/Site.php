@@ -1,12 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Site extends CI_Controller {
-
+class Site extends CI_Controller
+{
     public $css = '';
     public $js = '';
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->helper(['common', 'url']);
         $this->load->library('common');
@@ -27,10 +28,11 @@ class Site extends CI_Controller {
     }
     */
 
-    public function index() {
+    public function index()
+    {
         $sessionData = $this->session->all_userdata();
         if(!empty($sessionData)) {
-            var_dump($sessionData);
+            // var_dump($sessionData);
         }
 
         $this->load->view('/site/index');
@@ -39,7 +41,8 @@ class Site extends CI_Controller {
     /**
      * 로그인 처리
      */
-    public function doLogin() {
+    public function doLogin()
+    {
         $memberId = $this->input->post('memberId', true);
         $password = $this->input->post('password', true);
 
@@ -49,7 +52,8 @@ class Site extends CI_Controller {
         redirect('/signUp');
     }
 
-    public function signUp() {
+    public function signUp()
+    {
         $signUpForm = $this->input->post(null, true);
 
         if(is_array($signUpForm) && !empty($signUpForm)) {
@@ -77,7 +81,8 @@ class Site extends CI_Controller {
         }
     }
 
-    public function homePage() {
+    public function homePage()
+    {
 	    $param = $this->input->post(null, true);
 
 	    if(!empty($param)) {
@@ -93,7 +98,42 @@ class Site extends CI_Controller {
 	    }
     }
 
-    public function iosRestful() {
+    public function iosRestful()
+    {
 	    $this->load->view('ios');
+    }
+
+    /**
+     * 회원가입 처리
+     */
+    public function doJoin()
+    {
+        $this->load->library('validation');
+
+        $memberId = $this->input->post('memberId', true);
+        $password = $this->input->post('password', true);
+
+        // 입력 값 검증
+        $memberIdValidation = $this->validation->memberId($memberId);
+        if($memberIdValidation['code'] !== 1) {
+            echo $memberIdValidation['message'];
+            exit;
+        }
+        $passwordValidation = $this->validation->password($password);
+        if($passwordValidation['code'] !== 1) {
+            echo $passwordValidation['message'];
+            exit;
+        }
+
+        // 저장
+        $memberInfo = [
+            'memberId' => $memberId,
+            'password' => password_hash($password, PASSWORD_BCRYPT),
+            'state' => 'join',
+            'regDate' => time(),
+        ];
+
+        $this->load->model('member');
+        $this->member->insertMember($memberInfo);
     }
 }
