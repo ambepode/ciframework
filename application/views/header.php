@@ -55,7 +55,7 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
+                    <li><a href="/login/">Login</a></li>
                     <li><a href="#">Link</a></li>
                     <li><a href="#">Link</a></li>
                 </ul>

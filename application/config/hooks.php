@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$hook['post_controller_constructor'] = [
+$hook['post_controller_constructor'][] = [
 	'class'    => 'SiteBuilder',
 	'function' => 'loadHeader',
 	'filename' => 'SiteBuilder.php',
@@ -53,10 +53,17 @@ $hook['post_controller_constructor'] = [
 	'params' => ''
 ];
 
-$hook['post_system'] = [
+$hook['post_system'][] = [
 	'class'    => 'SiteBuilder',
 	'function' => 'loadFooter',
 	'filename' => 'SiteBuilder.php',
 	'filepath' => 'hooks',
 	'params' => ''
+];
+
+$hook['post_controller_constructor'][] = [
+    'class'     => 'SiteBuilder',
+    'function'  => 'checkPermission',
+    'filename'  => 'SiteBuilder.php',
+    'filepath'  => 'hooks'
 ];

@@ -5,6 +5,7 @@ class Site extends CI_Controller
 {
     public $css = '';
     public $js = '';
+    public $allow = ['login', 'doLogin'];
 
     public function __construct()
     {
@@ -50,7 +51,11 @@ class Site extends CI_Controller
 
         $result = $this->validation->login($memberId, $password);
         if($result['code'] === 1) {
-            $this->session->set_userdata($result['result']);
+            foreach($result['result'] as $userData => $value) {
+                if($userData === 'password') continue;
+
+                $this->session->set_userdata($userData, $value);
+            }
 
             redirect('/');
         } else {
@@ -142,5 +147,10 @@ class Site extends CI_Controller
 
         $this->load->model('member');
         $this->member->insertMember($memberInfo);
+    }
+
+    public function login()
+    {
+        $this->load->view('/site/login');
     }
 }
