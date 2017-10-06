@@ -55,7 +55,17 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/login/">Login</a></li>
+                    <?php
+                    if($memberId === null) {
+                        ?>
+                        <li><a href="/login/">Login</a></li>
+                        <?php
+                    } else {
+                        ?>
+                        <li><a href="/logout/">Logout</a></li>
+                        <?php
+                    }
+                    ?>
                     <li><a href="#">Link</a></li>
                     <li><a href="#">Link</a></li>
                 </ul>

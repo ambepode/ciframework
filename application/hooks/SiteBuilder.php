@@ -18,11 +18,14 @@ class SiteBuilder extends CI_Controller
 
 	public function loadHeader()
     {
+        $memberId = $this->CI->session->userdata('memberId');
+
 		$css = loadAssets([
 		    // '/assets/css/site/style.css'
         ], 'css');
 		$view = $this->CI->load->view('header', [
-			'css' => $css
+			'css' => $css,
+            'memberId' => $memberId,
 		], true);
 
 		echo $view;

@@ -3,28 +3,6 @@
     <p class="lead">Disable the responsiveness of Bootstrap by fixing the width of the container and using the first grid system tier. <a href="http://getbootstrap.com/getting-started/#disable-responsive">Read the documentation</a> for more information.</p>
 </div>
 
-<!-- 로그인 폼 -->
-<div class="row" style="margin: 0;">
-    <div class="col-xs-8"></div>
-    <div class="col-xs-4" style="background-color: #ffffff">
-        <form action="/doLogin" method="post">
-            <div class="input-group">
-                <span id="sizing-addon2" class="input-group-addon" style="width: 100px;">ID</span>
-                <input class="form-control" type="text" name="memberId"  placeholder="MemberId" aria-describedby="sizing-addon2" style="width: 200px;">
-            </div>
-            <p></p>
-            <div class="input-group">
-                <span id="sizing-addon2" class="input-group-addon" style="width: 100px;">PW</span>
-                <input class="form-control" type="password" name="password" placeholder="Password" aria-describedby="sizing-addon2" style="width: 200px;">
-            </div>
-            <p></p>
-            <button type="submit" class="btn btn-default" style="float: right;">Login</button>
-            <a class="btn btn-default" href="/signUp/" style="float: right; margin-right: 10px;">SignUp</a>
-        </form>
-    </div>
-</div>
-<!-- /로그인 폼 -->
-
 <h3>What changes</h3>
 <p>Note the lack of the <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code>, which disables the zooming aspect of sites in mobile devices. In addition, we reset our container's width and changed the navbar to prevent collapsing, and are basically good to go.</p>
 

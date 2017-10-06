@@ -5,14 +5,13 @@ class Site extends CI_Controller
 {
     public $css = '';
     public $js = '';
-    public $allow = ['login', 'doLogin'];
+    public $allow = ['index', 'login', 'doLogin'];
 
     public function __construct()
     {
         parent::__construct();
         $this->load->helper(['common', 'url']);
         $this->load->library('common');
-        $this->load->library('session');
 	    // $this->load->model('Member');
     }
 
@@ -93,28 +92,6 @@ class Site extends CI_Controller
         }
     }
 
-    public function homePage()
-    {
-	    $param = $this->input->post(null, true);
-
-	    if(!empty($param)) {
-	    	// $this->common->setUserLoginData();
-		    //$this->load->library('session');
-	    	//saveSession($param);
-	    }
-
-	    if($param['email'] == 'test@test' && $param['password'] == 'test') {
-		    $this->load->view('category');
-	    } else {
-	    	return false;
-	    }
-    }
-
-    public function iosRestful()
-    {
-	    $this->load->view('ios');
-    }
-
     /**
      * 회원가입 처리
      */
@@ -152,5 +129,14 @@ class Site extends CI_Controller
     public function login()
     {
         $this->load->view('/site/login');
+    }
+
+    /**
+     * 로그아웃
+     */
+    public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('/');
     }
 }
