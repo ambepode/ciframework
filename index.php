@@ -58,7 +58,7 @@
 	// define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
     $env = 'production';
     switch ($_SERVER['SERVER_NAME']) {
-        case 'www.noasly.dev.com':
+        case 'noasly.dev.com':
             $env = 'development';
             break;
         default:
