@@ -32,7 +32,7 @@ class Site extends CI_Controller
     {
         $sessionData = $this->session->all_userdata();
         if(!empty($sessionData)) {
-            // var_dump($sessionData);
+//            var_dump($sessionData);
         }
 
         $this->load->view('/site/index');
@@ -43,13 +43,20 @@ class Site extends CI_Controller
      */
     public function doLogin()
     {
+        $this->load->library('validation');
+
         $memberId = $this->input->post('memberId', true);
         $password = $this->input->post('password', true);
 
-        $userData = ['memberId' => 'helloJohn'];
-        $this->session->set_userdata($userData);
+        $result = $this->validation->login($memberId, $password);
+        if($result['code'] === 1) {
+            $this->session->set_userdata($result['result']);
 
-        redirect('/signUp');
+            redirect('/');
+        } else {
+            echo alertMessage($result['message']);
+            exit;
+        }
     }
 
     public function signUp()
