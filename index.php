@@ -58,12 +58,18 @@
 	// define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
     $env = 'production';
     switch($_SERVER['SERVER_NAME']) {
-        case 'www.dev.com':
+        case 'www.noasly.dev.com':
+        case 'noasly.dev.com':
             $env = 'development';
             break;
         default:
     }
     define('ENVIRONMENT', $env);
+
+    if(ENVIRONMENT === 'production' && $_SERVER['SERVER_NAME'] === 'www.noasly.iptime.org:88') {
+        Header('Location : http://noasly.iptime.org:88');
+        exit;
+    }
 
 /*
  *---------------------------------------------------------------
