@@ -57,8 +57,8 @@
     // 서버네임으로 개발환경 구분(아래 구문은 default)
 	// define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
     $env = 'production';
-    switch ($_SERVER['SERVER_NAME']) {
-        case 'noasly.dev.com':
+    switch($_SERVER['SERVER_NAME']) {
+        case 'www.dev.com':
             $env = 'development';
             break;
         default:

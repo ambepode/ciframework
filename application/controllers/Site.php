@@ -12,21 +12,7 @@ class Site extends CI_Controller
         parent::__construct();
         $this->load->helper(['common', 'url']);
         $this->load->library('common');
-	    // $this->load->model('Member');
     }
-
-    /*
-    public function _remap($method){
-        switch($method){
-            case 'signUp':
-                $this->signUp();
-                break;
-            default:
-                $this->index();
-                break;
-        }
-    }
-    */
 
     public function index()
     {
@@ -58,37 +44,8 @@ class Site extends CI_Controller
 
             redirect('/');
         } else {
-            echo alertMessage($result['message']);
+            echo alertMessage($result['message'], true);
             exit;
-        }
-    }
-
-    public function signUp()
-    {
-        $signUpForm = $this->input->post(null, true);
-
-        if(is_array($signUpForm) && !empty($signUpForm)) {
-            // check blank
-            foreach($signUpForm as $value) {
-                if(empty($value)) {
-                    echo alertMessage('fill out all the blanks');
-                }
-            }
-
-            // check password
-            if($signUpForm['password'] !== $signUpForm['password2']) {
-                echo alertMessage('password error');
-            }
-
-            // check regExp
-            // (new self)->index();
-
-	        // $this->Member->setMemberInfo($signUpForm);
-
-	        $this->load->view('signUp');
-
-        } else {
-            $this->load->view('signUp');
         }
     }
 
@@ -105,12 +62,12 @@ class Site extends CI_Controller
         // 입력 값 검증
         $memberIdValidation = $this->validation->memberId($memberId);
         if($memberIdValidation['code'] !== 1) {
-            echo $memberIdValidation['message'];
+            echo alertMessage($memberIdValidation['message']);
             exit;
         }
         $passwordValidation = $this->validation->password($password);
         if($passwordValidation['code'] !== 1) {
-            echo $passwordValidation['message'];
+            echo alertMessage($passwordValidation['message']);
             exit;
         }
 
@@ -126,6 +83,9 @@ class Site extends CI_Controller
         $this->member->insertMember($memberInfo);
     }
 
+    /**
+     * 로그인 페이지
+     */
     public function login()
     {
         $this->load->view('/site/login');

@@ -8,12 +8,13 @@ if(!function_exists('loadAssets')){
      * @param string $asset (css, js)
      * @return string
      */
-    function loadAssets($path, $asset = 'css'){
+    function loadAssets($path, $asset = 'css')
+    {
         $html = '';
         $pathArr = $path;
 
-        if(is_array($pathArr)){
-            foreach($pathArr as $path){
+        if(is_array($pathArr)) {
+            foreach($pathArr as $path) {
                 $path = $path . ASSET_VER;
 
 	            if($asset == 'css') {
@@ -28,19 +29,23 @@ if(!function_exists('loadAssets')){
     }
 }
 
-if(!function_exists('alertMessage')){
+if(!function_exists('alertMessage')) {
     /**
      * create alert message
      * @param string $msg
+     * @param bool $back
      * @return string
      */
-    function alertMessage($msg){
+    function alertMessage($msg, $back = false)
+    {
         $script = '';
+        $historyBack = (($back) ? 'history.back();' : '');
 
         if(!empty($msg)){
             $script = <<<SCRIPT
 <script type="text/javascript">
     alert("{$msg}");
+    {$historyBack}
 </script>
 SCRIPT;
         }

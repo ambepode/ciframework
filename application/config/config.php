@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // url 헬퍼의 redirect 함수 사용 시 ip address 가 출력되는 것을 방지
-$base_url = ((ENVIRONMENT == 'development') ? 'http://noasly.dev.com/' : 'http://noasly.iptime.org:88/');
+$base_url = ((ENVIRONMENT == 'development') ? 'http://www.dev.com/' : 'http://noasly.iptime.org:88/');
 $config['base_url'] = $base_url;
 /*
 |--------------------------------------------------------------------------
