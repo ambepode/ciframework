@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Site extends CI_Controller
+class Board extends CI_Controller
 {
     public $css = '';
     public $js = '';
@@ -19,7 +19,7 @@ class Site extends CI_Controller
      */
     public function index()
     {
-        $this->load->view('/site/index');
+        $this->load->view('/board/index');
     }
 
     /**

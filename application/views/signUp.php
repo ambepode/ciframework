@@ -5,7 +5,8 @@
 
 <!-- 회원가입 폼 -->
 <div class="row" style="margin: 0;">
-    <div class="col-xs-4" style="background-color: #ffffff">
+    <div class="col-xs-4" style="background-color: #ffffff; border: none;"></div>
+    <div class="col-xs-4" style="background-color: #ffffff; border: none;">
         <form action="/doJoin/" method="post">
             <div class="input-group">
                 <span id="sizing-addon2" class="input-group-addon" style="width: 100px;">ID</span>
@@ -17,9 +18,9 @@
                 <input class="form-control" type="password" name="password" placeholder="Password" aria-describedby="sizing-addon2" style="width: 200px;">
             </div>
             <p></p>
-            <button type="submit" class="btn btn-default" style="float: right;">SignUp</button>
+            <button type="submit" class="btn btn-default" style="width: 100%;">SignUp</button>
         </form>
     </div>
-    <div class="col-xs-8"></div>
+    <div class="col-xs-4" style="background-color: #ffffff; border: none;"></div>
 </div>
 <!-- /회원가입 폼 -->
